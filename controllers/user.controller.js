@@ -7,9 +7,11 @@ var adapter = new FileSync('db.json');
 var db = low(adapter);
 
 module.exports.index = function(req, res, next) {
+  var user = res.locals.user;
   var users = db.get('users').value();
   res.render('users/index', {
-    users
+    users,
+    user
   });
 }
 

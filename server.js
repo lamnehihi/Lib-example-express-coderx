@@ -12,11 +12,13 @@ var db = low(adapter);
 var bookRoute = require('./routes/book.route');
 var userRoute = require('./routes/user.route');
 var transactionRoute = require('./routes/transactions.route');
+var authRoute = require('./routes/auth.route');
 
 app.set('views', './views');
 app.set('view engine', 'pug');
 
 var cookiesMiddleware = require('./middlewares/cookies.middleware');
+var usersMiddleware = require('./middlewares/users.middleware');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));// for parsing application/x-www-form-urlencoded
@@ -35,12 +37,18 @@ app.use(
 
 app.use(
   '/users',
+  usersMiddleware.requireAuth,
   userRoute
 )
 
 app.use(
   '/transactions',
   transactionRoute
+)
+
+app.use(
+  '/auth',
+  authRoute
 )
 
 // make all the files in 'public' available

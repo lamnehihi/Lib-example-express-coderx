@@ -23,21 +23,22 @@
     {
       "id": "1",
       "name": "Thanh Lam",
+      "email": "abc@x.x",
+      "password": "123123",
       "cart": {}
     },
     {
       "id": "2",
       "name": "Ngoc Phuc",
+      "email": "abcc@x.x",
+      "password": "123123",
       "cart": {}
     },
     {
       "id": "3",
       "name": "Tuan Dat",
-      "cart": {}
-    },
-    {
-      "name": "asw",
-      "id": "0zndap7Xt",
+      "email": "abbc@x.x",
+      "password": "123123",
       "cart": {}
     }
   ],
