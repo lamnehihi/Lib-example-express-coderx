@@ -1,0 +1,9 @@
+extends ../layouts/common
+block content
+  h1 Update #{book.title}
+  form(action='/books/update/' + book.id, method="POST")
+    .form-group
+      label(for='title') New Title:
+      input#title.form-control(type='text', name='title')
+
+    button.btn.btn-primary Update

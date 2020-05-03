@@ -1,0 +1,17 @@
+extends ../layouts/common
+block content
+  h1 Books
+  a.badge.badge-primary(href="books/create") Add new book
+  table.table
+    tr
+      th Title
+      th Description
+      th 
+    if books
+      each book in books
+        tr
+          td= book.title
+          td= book.description
+          td
+            a.btn.btn-primary.btn-sm.mb-2(href="books/update/" + book.id) Update
+            a.btn.btn-danger.btn-sm(href="books/delete/" + book.id) Delete

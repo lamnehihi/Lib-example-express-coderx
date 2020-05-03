@@ -1,0 +1,17 @@
+extends ../layouts/common
+block content
+  h1 User
+  a.badge.badge-primary(href="users/create") Add new User
+  table.table
+    tr
+      th Name
+      th Cart
+      th 
+    if users
+      each user in users
+        tr
+          td= user.name
+          td= user.cart
+          td
+            a.btn.btn-primary.btn-sm(href="users/update/" + user.id) Update
+            a.btn.btn-danger.btn-sm(href="users/delete/" + user.id) Delete
