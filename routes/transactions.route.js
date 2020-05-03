@@ -2,6 +2,8 @@ var express = require("express");
 var router = express.Router();
 var controller = require('../controllers/transaction.controller');
 
+var validate = require('../validates/transaction.validate');
+
 router.get(
   "/",
   controller.index
@@ -19,6 +21,7 @@ router.post(
 
 router.get(
   "/:transactionId/complete",
+  validate.validateId,
   controller.completeTransaction
 )
 

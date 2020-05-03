@@ -21,6 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }));// for parsing application/x-
 db.defaults({ books: [], users: [], transactions : []})
   .write()
 
+app.use(express.static('public'));
+
 
 app.use(
   '/books',
