@@ -34,6 +34,11 @@
       "id": "3",
       "name": "Tuan Dat",
       "cart": {}
+    },
+    {
+      "name": "asw",
+      "id": "0zndap7Xt",
+      "cart": {}
     }
   ],
   "transactions": [
@@ -52,7 +57,7 @@
       "books": {
         "2": "1"
       },
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": "SGsWjCtqJ",
