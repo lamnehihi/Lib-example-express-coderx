@@ -21,24 +21,17 @@
   ],
   "users": [
     {
-      "id": "1",
+      "name": "Nguyễn Lâm Trường",
+      "email": "aaa",
+      "password": "$2a$10$YCsYqCuId.IMIDpOF1l1su.uF3nOWgq/L/F.qthZeUhCbZbbeQYE6",
+      "id": "zZ5wZFFji",
+      "cart": {}
+    },
+    {
       "name": "Thanh Lam",
-      "email": "abc@x.x",
-      "password": "4297f44b13955235245b2497399d7a93",
-      "cart": {}
-    },
-    {
-      "id": "2",
-      "name": "Ngoc Phuc",
-      "email": "abcc@x.x",
-      "password": "123123",
-      "cart": {}
-    },
-    {
-      "id": "3",
-      "name": "Tuan Dat",
-      "email": "abbc@x.x",
-      "password": "123123",
+      "email": "bbb",
+      "password": "$2a$10$C../iZYvccnkO1z0jIaSIe7jIWShlg.0HdJIDq1vC7D6SQD51U/p6",
+      "id": "BNqJzZSPQ",
       "cart": {}
     }
   ],

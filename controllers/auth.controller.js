@@ -1,5 +1,6 @@
 var low = require('lowdb');
 var md5 = require('md5');
+var bcrypt = require("bcryptjs");
 
 var FileSync = require('lowdb/adapters/FileSync');
 
@@ -25,8 +26,9 @@ module.exports.loginPost = function(req, res) {
     });
   }
   
-  var hashedPassword = md5(password);
-  if(hashedPassword !== user.password) {
+  var isRightPass = bcrypt.compareSync(password, user.password); // true
+  
+  if(!isRightPass) {
     errors.push('Wrong password!');
     res.render('auth/login', {
       errors
