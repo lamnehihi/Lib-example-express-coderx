@@ -1,0 +1,12 @@
+extends ../layouts/common
+block content 
+  h1 Add new
+
+  form(action='/books/create', method="POST")
+    .form-group
+      label(for='title') Title:
+      input#title.form-control(type='text', name='title')
+    .form-group
+      label(for='des') Description:
+      input#des.form-control(type='text', name='description')
+    button.btn.btn-primary Add

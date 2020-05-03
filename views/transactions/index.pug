@@ -1,0 +1,22 @@
+extends ../layouts/common
+block content
+  h1 Transactions
+  a.badge.badge-primary(href="/transactions/create") Add new transaction
+  table.table
+    tr
+      th User
+      th Books
+      th Status
+    if transactions
+      each transaction in transactions
+        tr
+          td= users[x].name
+          td
+            each book in books[x]
+              p=book.title
+          td
+            if transaction.isComplete
+              a.btn.btn-success.btn-sm(href="#") Done
+            if !transaction.isComplete
+              a.btn.btn-warning.btn-sm(href="/transactions/" + transaction.id + "/complete") Pending
+            p.d-none=++x

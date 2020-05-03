@@ -1,0 +1,74 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "aaaa",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem",
+      "quantity": "1"
+    },
+    {
+      "id": "2",
+      "title": "bbb",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem",
+      "quantity": "1"
+    },
+    {
+      "title": "Venice",
+      "description": "content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors",
+      "id": "sm35ToP-Y",
+      "quantity": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Thanh Lam",
+      "cart": {}
+    },
+    {
+      "id": "2",
+      "name": "Ngoc Phuc",
+      "cart": {}
+    },
+    {
+      "id": "3",
+      "name": "Tuan Dat",
+      "cart": {}
+    }
+  ],
+  "transactions": [
+    {
+      "id": "asd",
+      "userId": "1",
+      "books": {
+        "1": "1",
+        "2": "4"
+      },
+      "isComplete": true
+    },
+    {
+      "id": "ad",
+      "userId": "3",
+      "books": {
+        "2": "1"
+      },
+      "isComplete": false
+    },
+    {
+      "id": "SGsWjCtqJ",
+      "userId": "1",
+      "books": {
+        "1": "1"
+      },
+      "isComplete": false
+    },
+    {
+      "id": "BKTQ4TTTe",
+      "userId": "3",
+      "books": {
+        "sm35ToP-Y": "1"
+      },
+      "isComplete": true
+    }
+  ]
+}

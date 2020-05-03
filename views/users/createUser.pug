@@ -1,0 +1,9 @@
+extends ../layouts/common
+block content 
+  h1 Add new
+
+  form(action='/users/create', method="POST")
+    .form-group
+      label(for='title') Name:
+      input#title.form-control(type='text', name='name')
+    button.btn.btn-primary Add
