@@ -6,9 +6,17 @@ var FileSync = require('lowdb/adapters/FileSync');
 var adapter = new FileSync('db.json');
 var db = low(adapter);
 
+
 module.exports.index = function(req, res, next ) {
+  var page = req.query.page || 1;
+  console.log(page);
+  var perPage = 6;
+  var start = (page-1) * perPage;
+  var end = start + perPage;
+  
   res.render('books/index', {
-    books : db.get('books').value()
+    books : db.get('books').value().slice(start, end),
+    page
   })
 }
 
