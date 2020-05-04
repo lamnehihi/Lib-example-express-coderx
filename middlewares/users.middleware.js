@@ -13,7 +13,7 @@ module.exports.requireLogin = function(req, res, next) {
 }
 
 module.exports.requireAuth = function(req, res, next) {
-  var userId = req.cookies.userId;
+  var userId = req.signedCookies.userId;
   
   if(!userId) {
     res.redirect('/auth/login');

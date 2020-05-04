@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 var express = require("express");
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -22,7 +24,7 @@ var usersMiddleware = require('./middlewares/users.middleware');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));// for parsing application/x-www-form-urlencoded
-app.use(cookieParser());
+app.use(cookieParser(process.env.SESSION_SECRET));
 
 db.defaults({ books: [], users: [], transactions : []})
   .write()
@@ -59,7 +61,7 @@ var count = 1;
 app.get("/", 
   cookiesMiddleware.requireCookie,
   (request, response) => {
-  console.log(request.cookies.cookieId + ':' + count);
+  console.log(request.signedCookies.cookieId + ':' + count);
   count++;
   response.render("index");
 });
