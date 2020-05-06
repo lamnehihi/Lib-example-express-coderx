@@ -28,22 +28,24 @@ module.exports.requireAuth = function(req, res, next) {
 };
 
 module.exports.uploadImg = async function(req, res, next) {
-  cloudinary.config({
-    cloud_name: "lamnehihi",
-    api_key: "754463431636487",
-    api_secret: "baJlIxvTKPQ6hadS_LuKaujj0bk"
-  });
+  if(req.file){
+    cloudinary.config({
+      cloud_name: "lamnehihi",
+      api_key: "754463431636487",
+      api_secret: "baJlIxvTKPQ6hadS_LuKaujj0bk"
+    });
 
-  var avatar = await cloudinary.v2.uploader.upload(
+  avatar = await cloudinary.v2.uploader.upload(
     req.file.path,
     { public_id: "avatar_" + res.locals.email },
-    function(error, result) {
-      console.log(result);
-      avatar = result.secure_url;
-      console.log("avatar : " + avatar);
-      res.locals.avatar = avatar;
-    }
-  );
+      function(error, result) {
+        res.locals.avatar = result.secure_url;
+      }
+    );
+  }
+  else {
+    res.locals.avatar = "https://res.cloudinary.com/lamnehihi/image/upload/v1588732086/avatar_urnlxj.png";
+  }
   
   next()
   

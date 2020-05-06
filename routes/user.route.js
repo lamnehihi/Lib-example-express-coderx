@@ -48,5 +48,17 @@ router.get(
   controller.profile
 )
 
+router.get(
+  "/profile/avatar",
+  controller.avatar
+)
+
+router.post(
+  "/profile/avatar",
+  upload.single('avatar'),
+  usersMiddleware.uploadImg,
+  controller.avatarPost
+)
+
 
 module.exports = router;

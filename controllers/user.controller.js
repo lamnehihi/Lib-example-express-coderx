@@ -24,7 +24,6 @@ module.exports.createUserPost = function(req, res) {
   req.body.id = shortid.generate();
   req.body.cart = {};
   req.body.avatar = res.locals.avatar;
-  console.log(req.body.avatar);
   
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(req.body.password, salt);
@@ -84,4 +83,17 @@ module.exports.profile = function(req, res) {
   res.render("users/profile", {
     user : db.get('users').find({ id : userId }).value()
   });
+};
+
+module.exports.avatar = function(req, res) {
+  res.render("users/changeAvatar", {
+  });
+};
+
+module.exports.avatarPost = function(req, res) {
+  db.get("users")
+    .find({ id : req.signedCookies.userId })
+    .assign({avatar : res.locals.avatar})
+    .write();
+  res.redirect("/users/profile");
 };
