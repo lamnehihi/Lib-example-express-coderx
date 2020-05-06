@@ -71,12 +71,9 @@ module.exports.updateBookCover = function(req, res) {
 }
 
 module.exports.updateBookCoverPost = function(req, res) {
-  var bookId = req.params.bookId;
-  var newTitle = req.body.title;
-  //
-  db.get('books')
-  .find({ id: bookId })
-  .assign({ title: newTitle})
-  .write()
-  res.redirect('/books');
+  db.get("books")
+    .find({ id : req.params.bookId })
+    .assign({image : res.locals.cover})
+    .write();
+  res.redirect("/books/update/" + req.params.bookId);
 }

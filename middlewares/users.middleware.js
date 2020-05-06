@@ -34,7 +34,7 @@ module.exports.uploadImg = async function(req, res, next) {
     req.file.path,
     { 
       public_id: "avatar_" + res.locals.email,
-      folder : "Library/userAvatar"
+      folder : "Library/userAvatar/" + res.locals.email
     },
       function(error, result) {
         res.locals.avatar = result.secure_url;

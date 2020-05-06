@@ -5,6 +5,7 @@ var upload = multer({ dest: './public/uploads/' });
 
 var router = express.Router();
 var controller = require('../controllers/book.controller');
+var booksMiddleware = require('../middlewares/books.middleware');
 
 router.get(
   "/",
@@ -43,6 +44,8 @@ router.get(
 
 router.post(
   "/update/:bookId/cover",
+  upload.single('cover'),
+  booksMiddleware.uploadCover,
   controller.updateBookCoverPost
 )
 
