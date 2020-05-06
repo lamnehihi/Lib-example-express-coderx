@@ -9,10 +9,13 @@ var db = low(adapter);
 
 module.exports.index = function(req, res, next) {
   var user = res.locals.user;
-  var users = db.get("users").value();
+  if(user.priority == 1) {
+    var users = db.get("users").value();
+  }
+  console.log(users)
   res.render("users/index", {
-    users,
-    user
+    user,
+    users
   });
 };
 
@@ -24,6 +27,7 @@ module.exports.createUserPost = function(req, res) {
   req.body.id = shortid.generate();
   req.body.cart = {};
   req.body.avatar = res.locals.avatar;
+  req.body.priority = "3";                //1 == Admin . 2 == staff . 3 == user . 4 == banned
   
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(req.body.password, salt);
