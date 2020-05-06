@@ -1,4 +1,8 @@
 var express = require("express");
+var multer  = require('multer');
+
+var upload = multer({ dest: './public/uploads/' });
+
 var router = express.Router();
 var controller = require('../controllers/book.controller');
 
@@ -30,6 +34,16 @@ router.post(
 router.get(
   "/delete/:bookId",
   controller.deleteBook
+)
+
+router.get(
+  "/update/:bookId/cover",
+  controller.updateBookCover
+)
+
+router.post(
+  "/update/:bookId/cover",
+  controller.updateBookCoverPost
 )
 
 module.exports = router;
