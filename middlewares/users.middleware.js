@@ -35,9 +35,12 @@ module.exports.uploadImg = async function(req, res, next) {
       api_secret: "baJlIxvTKPQ6hadS_LuKaujj0bk"
     });
 
-  avatar = await cloudinary.v2.uploader.upload(
+  var avatar = await cloudinary.v2.uploader.upload(
     req.file.path,
-    { public_id: "avatar_" + res.locals.email },
+    { 
+      public_id: "avatar_" + res.locals.email,
+      folder : "Library/userAvatar"
+    },
       function(error, result) {
         res.locals.avatar = result.secure_url;
       }

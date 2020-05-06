@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Baloo 2', cursive;
   margin: 2em 1em;
   line-height: 1.5em;
 }
@@ -53,4 +53,18 @@ footer {
   margin-top: 3em;
   padding-top: 1.5em;
   border-top: 1px solid lightgrey;
+}
+
+.count-product {
+  font-size: .8875rem;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  line-height: 11px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  padding: 4px;
+  background: #161619;
+  display: inline-block;
 }

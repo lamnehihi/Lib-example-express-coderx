@@ -2,7 +2,7 @@
   "books": [
     {
       "id": "2c131088-d0d4-48bd-a5ce-c7b07db2a3cd",
-      "title": "Cummings, Weimann and Kerluke",
+      "title": "abc",
       "description": "congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue",
       "image": "https://picsum.photos/320/240"
     },
@@ -607,7 +607,6 @@
       "email": "tttt",
       "password": "$2a$10$9o4kgzxBkVZ9FY0mYxjqXeOi8p4n2C69wNYLR7M9NXmzaKfSYUHjO",
       "id": "tbkDJ5UJm",
-      "cart": {},
       "avatar": "https://res.cloudinary.com/lamnehihi/image/upload/v1588655844/avatar_tttt.png",
       "priority": "1"
     },
@@ -616,17 +615,16 @@
       "email": "aaass",
       "password": "$2a$10$E9pKqMXwxCI7rgX3HaWt2ekbNAqF6FBCD3I4RtPwG3cea2ehj1Q.u",
       "id": "-mrgnxLM9",
-      "cart": {},
       "avatar": "https://res.cloudinary.com/lamnehihi/image/upload/v1588733251/avatar_undefined.png",
       "priority": "3"
     },
     {
       "name": "Nguyễn Lâm Trường",
-      "email": "qqq",
-      "password": "$2a$10$9ET7g0Sa.SocZmFyoaqKMuEmsPKXCuMvLa0tul1SybW8Yjhd/kltO",
-      "id": "L1bIK40eF",
+      "email": "ttt",
+      "password": "$2a$10$.ktg1kH6n8uEnaa4TNE8XeSI8tlamDftPcq/NIa/CLN1dXA0orz/u",
+      "id": "btY7MZC_r",
       "cart": {},
-      "avatar": "https://res.cloudinary.com/lamnehihi/image/upload/v1588732086/avatar_urnlxj.png",
+      "avatar": "https://res.cloudinary.com/lamnehihi/image/upload/v1588769810/Library/userAvatar/avatar_ttt.png",
       "priority": "3"
     }
   ],
@@ -648,5 +646,7 @@
       },
       "isComplete": false
     }
-  ]
+  ],
+  "session": [],
+  "sessions": []
 }

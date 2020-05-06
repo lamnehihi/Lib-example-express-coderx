@@ -2,6 +2,8 @@ html
   head
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm", crossorigin="anonymous")
     link(rel="stylesheet", href="/style.css")
+    link(href='https://fonts.googleapis.com/css2?family=Baloo+2&display=swap', rel='stylesheet')
+
   body
     nav.navbar.navbar-expand-lg.navbar-light.bg-light
       a.navbar-brand(href='/')
@@ -21,6 +23,8 @@ html
           li.nav-item
             a.nav-link(href='/transactions') Transactions
         span.navbar-text
+          img.mr-2(src='https://res.cloudinary.com/lamnehihi/image/upload/v1588739220/Library/material/shopping_ja0t8v.svg', alt='Logo', width='20px')
+          span.count-product 4
           if user
             a.badge.badge-secondary(href='/auth/logout') Logout
       

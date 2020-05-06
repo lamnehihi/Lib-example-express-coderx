@@ -15,20 +15,26 @@ var bookRoute = require('./routes/book.route');
 var userRoute = require('./routes/user.route');
 var transactionRoute = require('./routes/transactions.route');
 var authRoute = require('./routes/auth.route');
+var cartRoute = require('./routes/cart.route');
 
 app.set('views', './views');
 app.set('view engine', 'pug');
 
 var cookiesMiddleware = require('./middlewares/cookies.middleware');
 var usersMiddleware = require('./middlewares/users.middleware');
+var sessionsMiddleware = require('./middlewares/sessions.middleware');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));// for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSION_SECRET));
 
-db.defaults({ books: [], users: [], transactions : []})
+db.defaults({ books: [], users: [], transactions : [], sessions : []})
   .write()
 
+
+app.use(
+  sessionsMiddleware.requireSession
+)
 
 app.use(
   '/books',
@@ -51,6 +57,13 @@ app.use(
   '/auth',
   authRoute
 )
+
+app.use(
+  '/cart',
+  cartRoute
+)
+
+
 
 // make all the files in 'public' available
 // https://expressjs.com/en/starter/static-files.html
