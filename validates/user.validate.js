@@ -9,11 +9,32 @@ module.exports.validateName = function(req, res, next) {
   var name = req.body.name;
   var errors = [];
   
-  if(name.split('').length > 30) {
-    errors.push('Invalid Name!');
+  if(name) {
+    if(name.split('').length > 30) {
+      errors.push('Invalid Name!');
+    }
+  }
+  
+  if(!name) {
+      errors.push('Require name!');
+  }
+  
+  if(!req.body.email) {
+      errors.push('Require email!');
+  }
+  
+  if(!req.body.password) {
+      errors.push('Require password!');
   }
   
   var users = db.get('users').value();
+  
+  var isEmailExist = db.get('users').find({ email : req.body.email}).value();
+  
+  if(isEmailExist) {
+    errors.push('This email has used before!');
+  }
+  
   if(errors.length) {
     res.render('users/createUser', {
       errors,
@@ -22,5 +43,6 @@ module.exports.validateName = function(req, res, next) {
     return
   }
   
+  res.locals.email = req.body.email;
   next();
 }

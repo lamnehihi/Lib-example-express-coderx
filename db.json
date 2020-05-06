@@ -622,6 +622,22 @@
       "password": "$2a$10$FS9zSX2nbPYPYwi2PjI5se8bT4u0fkO22FUBKrpdnWulf7XDLXEzC",
       "id": "8i_FAB-E7",
       "cart": {}
+    },
+    {
+      "name": "Nguyễn Lâm Trường",
+      "email": "zzz",
+      "password": "$2a$10$jJTQWOMcsxnkVyzf8KSi6uRhgJmvAjxII5ocLMEdRrxQMQ7XBknFu",
+      "id": "OBWqlaIC7",
+      "cart": {},
+      "avatar": "uploads/fdc9c35e176d2fa0827d2ce3fd9978c3"
+    },
+    {
+      "name": "test",
+      "email": "tttt",
+      "password": "$2a$10$9o4kgzxBkVZ9FY0mYxjqXeOi8p4n2C69wNYLR7M9NXmzaKfSYUHjO",
+      "id": "tbkDJ5UJm",
+      "cart": {},
+      "avatar": "https://res.cloudinary.com/lamnehihi/image/upload/v1588655844/avatar_tttt.png"
     }
   ],
   "transactions": [

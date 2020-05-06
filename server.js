@@ -29,8 +29,6 @@ app.use(cookieParser(process.env.SESSION_SECRET));
 db.defaults({ books: [], users: [], transactions : []})
   .write()
 
-app.use(express.static('public'));
-
 
 app.use(
   '/books',
