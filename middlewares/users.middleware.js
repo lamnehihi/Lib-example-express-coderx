@@ -1,10 +1,5 @@
 var cloudinary = require("cloudinary");
-var low = require("lowdb");
-
-var FileSync = require("lowdb/adapters/FileSync");
-
-var adapter = new FileSync("db.json");
-var db = low(adapter);
+var db = require('../db');
 
 module.exports.requireAuth = function(req, res, next) {
   var userId = req.signedCookies.userId;
@@ -28,7 +23,7 @@ module.exports.requireAuth = function(req, res, next) {
 };
 
 module.exports.uploadImg = async function(req, res, next) {
-  if(req.file){
+  if(req.file) {
     cloudinary.config({
       cloud_name: "lamnehihi",
       api_key: "754463431636487",
@@ -39,7 +34,7 @@ module.exports.uploadImg = async function(req, res, next) {
     req.file.path,
     { 
       public_id: "avatar_" + res.locals.email,
-      folder : "Library/userAvatar"
+      folder : "Library/userAvatar/" + res.locals.email
     },
       function(error, result) {
         res.locals.avatar = result.secure_url;

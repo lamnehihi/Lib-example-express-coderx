@@ -1,10 +1,6 @@
-var low = require('lowdb');
 var shortid = require('shortid');
 
-var FileSync = require('lowdb/adapters/FileSync');
-
-var adapter = new FileSync('db.json');
-var db = low(adapter);
+var db = require('../db');
 
 module.exports.index = function(req, res, next) {
   var transactions = db.get('transactions').value();

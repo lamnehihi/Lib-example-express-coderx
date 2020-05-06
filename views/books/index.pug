@@ -6,18 +6,19 @@ block content
     .row
       each book in books
         .card.m-2(style='width: 18rem;')
-          img.card-img-top(src=book.image, alt='Card image cap')
+          .box
+            img.card-img-top(src=book.image, alt='Card image cap')
           .card-body
             h5.card-title=book.title
             p.card-text=book.description
-            a.btn.btn-primary(href='cart/add') Add to cart
+            a.btn.btn-primary(href='cart/add/' + book.id) Add to cart
             p
               a.btn.btn-primary.btn-sm.mb-2(href="books/update/" + book.id) Update
             p
               a.btn.btn-danger.btn-sm(href="books/delete/" + book.id) Delete
     
     
-    
+    h1=test
     p=page  
     case page
       when 1

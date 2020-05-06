@@ -1,11 +1,7 @@
-var low = require("lowdb");
 var md5 = require("md5");
 var bcrypt = require("bcryptjs");
 
-var FileSync = require("lowdb/adapters/FileSync");
-
-var adapter = new FileSync("db.json");
-var db = low(adapter);
+var db = require('../db');
 
 module.exports.login = function(req, res) {
   res.render("auth/login", {});

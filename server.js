@@ -4,12 +4,8 @@ var express = require("express");
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var app = express();
-var low = require('lowdb');
 
-var FileSync = require('lowdb/adapters/FileSync');
-
-var adapter = new FileSync('db.json');
-var db = low(adapter);
+var db = require('./db');
 
 var bookRoute = require('./routes/book.route');
 var userRoute = require('./routes/user.route');
@@ -28,13 +24,13 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));// for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSION_SECRET));
 
-db.defaults({ books: [], users: [], transactions : [], sessions : []})
-  .write()
 
 
 app.use(
-  sessionsMiddleware.requireSession
+  sessionsMiddleware.requireSession,
+  sessionsMiddleware.count
 )
+
 
 app.use(
   '/books',
@@ -68,13 +64,10 @@ app.use(
 // make all the files in 'public' available
 // https://expressjs.com/en/starter/static-files.html
 app.use(express.static("public"));
-var count = 1;
+
 // https://expressjs.com/en/starter/basic-routing.html
 app.get("/", 
-  cookiesMiddleware.requireCookie,
   (request, response) => {
-  console.log(request.signedCookies.cookieId + ':' + count);
-  count++;
   response.render("index");
 });
 
