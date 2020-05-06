@@ -43,6 +43,7 @@ app.use(
 
 app.use(
   '/transactions',
+  usersMiddleware.requireAuth,
   transactionRoute
 )
 

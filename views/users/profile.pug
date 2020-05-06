@@ -11,8 +11,10 @@ block content
     .form-group
       label(for='Password') Password:
       input#Password.form-control(type='password', value=user.password, disabled="disabled")
-      a.btn.btn-primary(href='#') Update password
+      a.badge.badge-info(href='#') Change password
     .form-group
       label(for='Avatar') Avatar:
       img(src=user.avatar, alt='Logo', width='32px')
+      p.mt-2
+        a.badge.badge-info(href='/users/profile/avatar') Change avatar
     button.btn.btn-primary Update

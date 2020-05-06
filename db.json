@@ -603,47 +603,37 @@
   ],
   "users": [
     {
-      "name": "Nguyễn Lâm Trường",
-      "email": "aaa",
-      "password": "$2a$10$YCsYqCuId.IMIDpOF1l1su.uF3nOWgq/L/F.qthZeUhCbZbbeQYE6",
-      "id": "zZ5wZFFji",
-      "cart": {}
-    },
-    {
-      "name": "Thanh Lam",
-      "email": "bbb",
-      "password": "$2a$10$C../iZYvccnkO1z0jIaSIe7jIWShlg.0HdJIDq1vC7D6SQD51U/p6",
-      "id": "BNqJzZSPQ",
-      "cart": {}
-    },
-    {
-      "name": "Ngoc Phuc",
-      "email": "ccc",
-      "password": "$2a$10$FS9zSX2nbPYPYwi2PjI5se8bT4u0fkO22FUBKrpdnWulf7XDLXEzC",
-      "id": "8i_FAB-E7",
-      "cart": {}
-    },
-    {
-      "name": "Nguyễn Lâm Trường",
-      "email": "zzz",
-      "password": "$2a$10$jJTQWOMcsxnkVyzf8KSi6uRhgJmvAjxII5ocLMEdRrxQMQ7XBknFu",
-      "id": "OBWqlaIC7",
-      "cart": {},
-      "avatar": "uploads/fdc9c35e176d2fa0827d2ce3fd9978c3"
-    },
-    {
       "name": "test",
       "email": "tttt",
       "password": "$2a$10$9o4kgzxBkVZ9FY0mYxjqXeOi8p4n2C69wNYLR7M9NXmzaKfSYUHjO",
       "id": "tbkDJ5UJm",
       "cart": {},
-      "avatar": "https://res.cloudinary.com/lamnehihi/image/upload/v1588655844/avatar_tttt.png"
+      "avatar": "https://res.cloudinary.com/lamnehihi/image/upload/v1588655844/avatar_tttt.png",
+      "priority": "1"
+    },
+    {
+      "name": "asdasd",
+      "email": "aaass",
+      "password": "$2a$10$E9pKqMXwxCI7rgX3HaWt2ekbNAqF6FBCD3I4RtPwG3cea2ehj1Q.u",
+      "id": "-mrgnxLM9",
+      "cart": {},
+      "avatar": "https://res.cloudinary.com/lamnehihi/image/upload/v1588733251/avatar_undefined.png",
+      "priority": "3"
+    },
+    {
+      "name": "Nguyễn Lâm Trường",
+      "email": "qqq",
+      "password": "$2a$10$9ET7g0Sa.SocZmFyoaqKMuEmsPKXCuMvLa0tul1SybW8Yjhd/kltO",
+      "id": "L1bIK40eF",
+      "cart": {},
+      "avatar": "https://res.cloudinary.com/lamnehihi/image/upload/v1588732086/avatar_urnlxj.png",
+      "priority": "3"
     }
   ],
   "transactions": [
     {
       "id": "asd",
-      "userId": "zZ5wZFFji",
+      "userId": "tbkDJ5UJm",
       "books": {
         "96f16241-e866-4152-8de8-bd132c3c58d7": "1",
         "0617bfe3-b644-4d9a-ae40-fc0589f0afae": "4"
@@ -652,27 +642,11 @@
     },
     {
       "id": "ad",
-      "userId": "zZ5wZFFji",
+      "userId": "-mrgnxLM9",
       "books": {
         "0617bfe3-b644-4d9a-ae40-fc0589f0afae": "1"
       },
       "isComplete": false
-    },
-    {
-      "id": "SGsWjCtqJ",
-      "userId": "BNqJzZSPQ",
-      "books": {
-        "0617bfe3-b644-4d9a-ae40-fc0589f0afae": "1"
-      },
-      "isComplete": false
-    },
-    {
-      "id": "BKTQ4TTTe",
-      "userId": "BNqJzZSPQ",
-      "books": {
-        "0617bfe3-b644-4d9a-ae40-fc0589f0afae": "1"
-      },
-      "isComplete": true
     }
   ]
 }

@@ -9,10 +9,13 @@ var db = low(adapter);
 
 module.exports.index = function(req, res, next) {
   var user = res.locals.user;
-  var users = db.get("users").value();
+  if(user.priority == 1) {
+    var users = db.get("users").value();
+  }
+  console.log(users)
   res.render("users/index", {
-    users,
-    user
+    user,
+    users
   });
 };
 
@@ -24,7 +27,7 @@ module.exports.createUserPost = function(req, res) {
   req.body.id = shortid.generate();
   req.body.cart = {};
   req.body.avatar = res.locals.avatar;
-  console.log(req.body.avatar);
+  req.body.priority = "3";                //1 == Admin . 2 == staff . 3 == user . 4 == banned
   
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(req.body.password, salt);
@@ -84,4 +87,17 @@ module.exports.profile = function(req, res) {
   res.render("users/profile", {
     user : db.get('users').find({ id : userId }).value()
   });
+};
+
+module.exports.avatar = function(req, res) {
+  res.render("users/changeAvatar", {
+  });
+};
+
+module.exports.avatarPost = function(req, res) {
+  db.get("users")
+    .find({ id : req.signedCookies.userId })
+    .assign({avatar : res.locals.avatar})
+    .write();
+  res.redirect("/users/profile");
 };
