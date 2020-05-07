@@ -7,10 +7,12 @@ var router = express.Router();
 var controller = require('../controllers/user.controller');
 var validate = require('../validates/user.validate');
 var usersMiddleware = require('../middlewares/users.middleware');
+var sessionsMiddleware = require('../middlewares/sessions.middleware');
 
 
 router.get(
   "/",
+  sessionsMiddleware.count,
   controller.index
 )
 

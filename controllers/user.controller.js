@@ -8,7 +8,7 @@ module.exports.index = function(req, res, next) {
   if(user.priority == 1) {
     var users = db.get("users").value();
   }
-  console.log(users)
+  console.log(user)
   res.render("users/index", {
     user,
     users
