@@ -5,7 +5,7 @@
       "title": "The Zolin Conspiracy",
       "description": "et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non",
       "image": "https://res.cloudinary.com/lamnehihi/image/upload/v1588780526/Library/books/1d8763ac-e54a-4f74-93b9-124a57d178bd/cover_1d8763ac-e54a-4f74-93b9-124a57d178bd.jpg",
-      "quantity": 1
+      "quantity": 2
     },
     {
       "id": "f3e48b2a-3bf0-49b9-8525-c8fb2f72d66c",
@@ -25,7 +25,8 @@
       "id": "f84c2e08-ed08-4095-a5e5-37b359399329",
       "title": "The Water Cure",
       "description": "amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante",
-      "image": "https://res.cloudinary.com/lamnehihi/image/upload/v1588781821/Library/books/f84c2e08-ed08-4095-a5e5-37b359399329/cover_f84c2e08-ed08-4095-a5e5-37b359399329.jpg"
+      "image": "https://res.cloudinary.com/lamnehihi/image/upload/v1588781821/Library/books/f84c2e08-ed08-4095-a5e5-37b359399329/cover_f84c2e08-ed08-4095-a5e5-37b359399329.jpg",
+      "quantity": 1
     },
     {
       "id": "73168c6f-39a4-405c-ae7d-67fb17723df2",
@@ -87,19 +88,19 @@
   ],
   "transactions": [
     {
-      "id": "asd",
-      "userId": "tbkDJ5UJm",
-      "books": {
-        "96f16241-e866-4152-8de8-bd132c3c58d7": "1",
-        "0617bfe3-b644-4d9a-ae40-fc0589f0afae": "4"
-      },
-      "isComplete": true
-    },
-    {
-      "id": "ad",
+      "id": "gI_dY5FSk",
       "userId": "-mrgnxLM9",
       "books": {
-        "0617bfe3-b644-4d9a-ae40-fc0589f0afae": "1"
+        "1d8763ac-e54a-4f74-93b9-124a57d178bd": 2
+      },
+      "isComplete": false
+    },
+    {
+      "id": "C_avd1y3x",
+      "userId": "-mrgnxLM9",
+      "books": {
+        "fb4d9303-039d-4fc4-a8c4-f9b2f5c5f4b1": 1,
+        "f84c2e08-ed08-4095-a5e5-37b359399329": 1
       },
       "isComplete": false
     }
@@ -116,32 +117,6 @@
     },
     {
       "id": "oTHW7nB8_",
-      "cart": {
-        "f3e48b2a-3bf0-49b9-8525-c8fb2f72d66c": 1,
-        "1d8763ac-e54a-4f74-93b9-124a57d178bd": 1,
-        "fb4d9303-039d-4fc4-a8c4-f9b2f5c5f4b1": 1
-      }
-    },
-    {
-      "id": "tnVC6AkIt",
-      "cart": {
-        "f84c2e08-ed08-4095-a5e5-37b359399329": 1
-      }
-    },
-    {
-      "id": "Q0aTuM4RF",
-      "cart": {
-        "1d8763ac-e54a-4f74-93b9-124a57d178bd": 1
-      }
-    },
-    {
-      "id": "ykTPFML-A",
-      "cart": {
-        "3e263538-ba3c-4f75-a182-527e8c414497": 2
-      }
-    },
-    {
-      "id": "qpYI1YrlO",
       "cart": {}
     }
   ]
