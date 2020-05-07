@@ -23,8 +23,9 @@ html
           li.nav-item
             a.nav-link(href='/transactions') Transactions
         span.navbar-text
-          img.mr-2(src='https://res.cloudinary.com/lamnehihi/image/upload/v1588739220/Library/material/shopping_ja0t8v.svg', alt='Logo', width='20px')
-          span.count-product=total
+          a.nav-link(href='/cart')
+            img.mr-2(src='https://res.cloudinary.com/lamnehihi/image/upload/v1588739220/Library/material/shopping_ja0t8v.svg', alt='Logo', width='20px')
+            span.count-product=total
           if user
             a.badge.badge-secondary(href='/auth/logout') Logout
       

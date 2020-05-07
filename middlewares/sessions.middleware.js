@@ -44,6 +44,5 @@ module.exports.count = function(req, res, next) {
     }
   }
   res.locals.total = totalInCart;
-  console.log(totalInCart)
   next();
 };

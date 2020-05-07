@@ -43,7 +43,6 @@ module.exports.createTransaction = function(req, res, next) {
 module.exports.createTransactionPost = function(req, res, next) {
   var id = shortid.generate();
   
-  console.log(req.body)
   var userId = req.body.user.split(' ').pop();
   var bookId = req.body.book.split(' ').pop();
   var books = {}
@@ -66,7 +65,6 @@ module.exports.createTransactionPost = function(req, res, next) {
 
 module.exports.completeTransaction = function(req, res, next) {
   var transactionId = req.params.transactionId;
-  console.log(transactionId);
   db.get('transactions')
   .find({ id : transactionId })
   .assign({isComplete : true})

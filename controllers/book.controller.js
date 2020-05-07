@@ -4,7 +4,6 @@ var db = require('../db');
 
 module.exports.index = function(req, res, next ) {
   var page = req.query.page || 1;
-  console.log(page);
   var perPage = 6;
   var start = (page-1) * perPage;
   var end = start + perPage;
