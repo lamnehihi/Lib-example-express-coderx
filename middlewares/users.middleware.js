@@ -1,7 +1,9 @@
 var cloudinary = require("cloudinary");
-var db = require("../db");
 
-module.exports.requireAuth = function(req, res, next) {
+var db = require("../db");
+var Users = require("../models/users.model");
+
+module.exports.requireAuth = async function(req, res, next) {
   var userId = req.signedCookies.userId;
 
   if (!userId) {
@@ -9,26 +11,32 @@ module.exports.requireAuth = function(req, res, next) {
     return;
   }
 
-  var user = db
-    .get("users")
-    .find({ id: userId })
-    .value();
+  var user = await Users.findOne({ _id: userId });
   if (!user) {
     res.redirect("/auth/login");
     return;
   }
-  
+
   if (!req.signedCookies.sessionId) {
     res.redirect("/");
   }
-  
-  if(!user.sessionId){
+
+  if (!user.sessionId) {
     user.sessionId = req.signedCookies.sessionId;
   }
-  
-  res.cookie('sessionId', user.sessionId, {
-      signed : true
-    });
+
+  res.cookie("sessionId", user.sessionId, {
+    signed: true
+  });
+  try {
+    var result = await Users.updateOne(
+      { _id: userId },
+      { $set: { sessionId: req.signedCookies.sessionId } }
+    );
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
 
   res.locals.user = user;
   next();
@@ -59,4 +67,3 @@ module.exports.uploadImg = async function(req, res, next) {
 
   next();
 };
-
