@@ -12,7 +12,6 @@ var sessionsMiddleware = require('../middlewares/sessions.middleware');
 
 router.get(
   "/",
-  sessionsMiddleware.count,
   controller.index
 )
 

@@ -19,6 +19,8 @@ router.get(
 
 router.post(
   "/create",
+  upload.single('cover'),
+  booksMiddleware.uploadCover,
   controller.createBookPost
 )
 

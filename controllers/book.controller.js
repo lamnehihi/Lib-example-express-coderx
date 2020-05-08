@@ -1,6 +1,5 @@
 var shortid = require('shortid');
 
-var db = require('../db');
 var Books = require("../models/books.model");
 
 module.exports.index = async function(req, res, next ) {
@@ -8,12 +7,10 @@ module.exports.index = async function(req, res, next ) {
   var perPage = 6;
   var start = (page-1) * perPage;
   var end = start + perPage;
-  console.log("asd")
   var books = await Books.find();
-  console.log(books);
   
   res.render('books/index', {
-    books,
+    books : books.slice(start, end),
     page,
     test : res.locals.test
   })
@@ -24,59 +21,50 @@ module.exports.createBook = function(req, res) {
   })
 }
 
-module.exports.createBookPost = function(req, res) {
-  req.body.id = shortid.generate();
-  db.get('books')
-    .push(req.body)
-    .write();
+module.exports.createBookPost = async function(req, res) {
+  req.body.image = res.locals.cover;
+  var result = await Books.create(req.body);
   res.redirect('/books');
 }
 
-module.exports.updateBook = function(req, res) {
+module.exports.updateBook = async function(req, res) {
   var bookId = req.params.bookId;
-  var book = db
-      .get('books')
-      .find({ id: bookId })
-      .value()
+  var book = await Books.findOne({ _id : bookId });
+  
   res.render('books/updateBook', {
     book,
   })
 }
 
-module.exports.updateBookPost = function(req, res) {
+module.exports.updateBookPost = async function(req, res) {
   var bookId = req.params.bookId;
   var newTitle = req.body.title;
-  //
-  db.get('books')
-  .find({ id: bookId })
-  .assign({ title: newTitle})
-  .write()
+  
+  var result = await Books.updateOne({ _id : bookId }, req.body);
+  
   res.redirect('/books');
 }
 
-module.exports.deleteBook = function(req, res) {
+module.exports.deleteBook = async function(req, res) {
   var bookId = req.params.bookId;
-  db.get('books')
-    .remove({ id: bookId })
-    .write()
+  var result = await Books.deleteOne({ _id : bookId});
   res.redirect('/books');
 }
 
-module.exports.updateBookCover = function(req, res) {
+module.exports.updateBookCover = async function(req, res) {
   var bookId = req.params.bookId;
-  var book = db
-      .get('books')
-      .find({ id: bookId })
-      .value()
+  
+  var book = await Books.findOne({ _id : bookId });
+  
   res.render('books/changeCover', {
     book,
   })
 }
 
-module.exports.updateBookCoverPost = function(req, res) {
-  db.get("books")
-    .find({ id : req.params.bookId })
-    .assign({image : res.locals.cover})
-    .write();
+module.exports.updateBookCoverPost = async function(req, res) {
+  var bookId = req.params.bookId;
+  
+  var result = await Books.updateOne({ _id : bookId }, { image : res.locals.cover });
+  
   res.redirect("/books/update/" + req.params.bookId);
 }

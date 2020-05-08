@@ -1,24 +1,20 @@
-var shortid = require("shortid");
-
 var db = require("../db");
+var Sessions = require("../models/sessions.model");
 
-module.exports.requireSession = function(req, res, next) {
+
+module.exports.requireSession = async function(req, res, next) {
   var cookie = req.signedCookies;
 
   if (!cookie.sessionId) {
-    var sessionId = shortid.generate();
-    res.cookie("sessionId", sessionId, {
-      signed: true
-    });
-
     var session = {
-      id: sessionId,
       cart: {}
     };
+    
+    var result = await Sessions.create(session);
 
-    db.get("sessions")
-      .push(session)
-      .write();
+    res.cookie("sessionId", result.id, {
+      signed: true
+    });
 
     res.redirect("/");
   }
@@ -33,13 +29,13 @@ module.exports.count = function(req, res, next) {
 
   var session = db
     .get("sessions")
-    .find({ id : sessionId })
+    .find({ id: sessionId })
     .value();
-  
+
   //count total books in cart
   var totalInCart = 0;
-  if(session){
-    for(var book in session.cart) {
+  if (session) {
+    for (var book in session.cart) {
       totalInCart += session.cart[book];
     }
   }
