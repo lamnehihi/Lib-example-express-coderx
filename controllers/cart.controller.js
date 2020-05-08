@@ -3,10 +3,13 @@ var shortid = require("shortid");
 var db = require("../db");
 
 module.exports.index = function(req, res) {
+  console.log(req.signedCookies.sessionId)
   var cart = db
     .get("sessions")
     .find({ id: req.signedCookies.sessionId })
     .value().cart;
+  
+  
 
   //books array
   var books = [];
