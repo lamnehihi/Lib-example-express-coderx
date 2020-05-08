@@ -1,10 +1,15 @@
+var shortid = require("shortid");
+
 var db = require("../db");
 
 module.exports.index = function(req, res) {
+  console.log(req.signedCookies.sessionId)
   var cart = db
     .get("sessions")
     .find({ id: req.signedCookies.sessionId })
     .value().cart;
+  
+  
 
   //books array
   var books = [];
@@ -65,4 +70,37 @@ module.exports.delete = function(req, res) {
     .write();
 
   res.redirect("/cart");
+};
+
+module.exports.hire = function(req, res) {
+  var success = ["Success hired books, check your transaction !"];
+
+  var sessionId = req.signedCookies.sessionId;
+  var cart = db
+    .get("sessions")
+    .find({ id: sessionId })
+    .value().cart;
+
+  var userId = req.signedCookies.userId;
+  var transaction = {
+    id: shortid.generate(),
+    userId: userId,
+    books: cart,
+    isComplete: false
+  };
+  
+  db.get('transactions')
+  .push(transaction)
+  .write()
+  
+  cart = {};
+  db.get('sessions')
+  .find({ id : sessionId })
+  .assign({cart : cart})
+  .write()
+  
+  res.render("cart/index", {
+    success,
+    books : []
+  });
 };

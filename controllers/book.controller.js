@@ -1,15 +1,19 @@
 var shortid = require('shortid');
 
 var db = require('../db');
+var Books = require("../models/books.model");
 
-module.exports.index = function(req, res, next ) {
+module.exports.index = async function(req, res, next ) {
   var page = req.query.page || 1;
   var perPage = 6;
   var start = (page-1) * perPage;
   var end = start + perPage;
+  console.log("asd")
+  var books = await Books.find();
+  console.log(books);
   
   res.render('books/index', {
-    books : db.get('books').value().slice(start, end),
+    books,
     page,
     test : res.locals.test
   })
