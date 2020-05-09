@@ -33,7 +33,6 @@ module.exports.requireAuth = async function(req, res, next) {
       { _id: userId },
       { $set: { sessionId: req.signedCookies.sessionId } }
     );
-    console.log(result);
   } catch (error) {
     console.log(error);
   }
@@ -53,8 +52,11 @@ module.exports.uploadImg = async function(req, res, next) {
     var avatar = await cloudinary.v2.uploader.upload(
       req.file.path,
       {
-        public_id: "avatar_" + res.locals.email,
-        folder: "Library/userAvatar/" + res.locals.email
+        public_id: "avatar_" + req.params.userId,
+        folder: "Library/userAvatar/" + req.params.userId,
+        width: 1000,
+        height: 1000,
+        crop: "limit"
       },
       function(error, result) {
         res.locals.avatar = result.secure_url;
