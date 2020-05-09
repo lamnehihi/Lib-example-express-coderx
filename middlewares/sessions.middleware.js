@@ -1,15 +1,13 @@
-var db = require("../db");
 var Sessions = require("../models/sessions.model");
-
 
 module.exports.requireSession = async function(req, res, next) {
   var cookie = req.signedCookies;
 
   if (!cookie.sessionId) {
     var session = {
-      cart: {}
+      cart: []
     };
-    
+
     var result = await Sessions.create(session);
 
     res.cookie("sessionId", result.id, {
@@ -24,19 +22,16 @@ module.exports.requireSession = async function(req, res, next) {
   next();
 };
 
-module.exports.count = function(req, res, next) {
+module.exports.count = async function(req, res, next) {
   var sessionId = req.signedCookies.sessionId;
 
-  var session = db
-    .get("sessions")
-    .find({ id: sessionId })
-    .value();
+  var session = await Sessions.findOne({ _id: sessionId });
 
   //count total books in cart
   var totalInCart = 0;
-  if (session) {
-    for (var book in session.cart) {
-      totalInCart += session.cart[book];
+  if (session.cart) {
+    for (var book of session.cart) {
+      totalInCart += 1;
     }
   }
   res.locals.total = totalInCart;

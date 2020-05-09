@@ -1,5 +1,4 @@
 var cloudinary = require("cloudinary");
-var db = require("../db");
 
 module.exports.uploadCover = async function(req, res, next) {
   if (req.file) {

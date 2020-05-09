@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
 var controller = require('../controllers/cart.controller');
-var sessionMiddleware = require('../middlewares/sessions.middleware');
 var cartValidate = require('../validates/cart.validate');
 
 router.get(
@@ -12,7 +11,6 @@ router.get(
 
 router.get(
   '/add/:bookId',
-  sessionMiddleware.requireSession,
   controller.add
 );
 

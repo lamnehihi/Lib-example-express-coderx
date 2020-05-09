@@ -1,15 +1,15 @@
-
+var Sessions = require("../models/sessions.model");
 var db = require("../db");
 
-module.exports.validateCart = function(req, res, next) {
+module.exports.validateCart = async function(req, res, next) {
   var sessionId = req.signedCookies.sessionId;
   var errors = [];
   
-  var cart = db.get('sessions').find({ id : sessionId}).value().cart;
-  
+  var session = await Sessions.findOne({ _id : sessionId});
+  var cart = session.cart;
   var count = 0;
-  for ( var book in cart) {
-    count += cart[book];
+  for ( var book of cart) {
+    count ++;
   }
   
   if(!count) {

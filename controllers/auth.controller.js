@@ -1,7 +1,6 @@
 var md5 = require("md5");
 var bcrypt = require("bcryptjs");
 
-var db = require('../db');
 var Users = require("../models/users.model");
 
 module.exports.login = function(req, res) {

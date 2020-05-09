@@ -1,73 +1,65 @@
-var shortid = require('shortid');
+var Transactions = require("../models/transactions.model");
+var Users = require("../models/users.model");
+var Books = require("../models/books.model");
 
-var db = require('../db');
-
-module.exports.index = function(req, res, next) {
-  var transactions = db.get('transactions').value();
+module.exports.index = async function(req, res, next) {
+  var transactions = await Transactions.find();
   var users = [];
-  for(var transaction of transactions) {
-     var user = db.get('users').find({ id : transaction.userId }).value();
+  for (var transaction of transactions) {
+    var user = await Users.findOne({ _id: transaction.userId });
     users.push(user);
   }
-  
-  var books = [];
-  for(var transaction of transactions) {
-    var booksFiler = [];
-    for(var id in transaction.books) {
-      var book = db.get('books').find({ id : id }).value();
-      book.quantity = transaction.books[id];
-      booksFiler.push(book);
-    }
-    books.push(booksFiler);
-  }
 
+  var books = [];
+  for (var transaction of transactions) {
+    var booksFilter = [];
+    for (var id of transaction.books) {
+      var book = await Books.findOne({ _id: id });
+      booksFilter.push(book);
+    }
+    books.push(booksFilter);
+  }
   
-  res.render('transactions/index', {
+
+  res.render("transactions/index", {
     transactions,
     users,
     books,
-    x : 0
+    x: 0
   });
-}
+};
 
-module.exports.createTransaction = function(req, res, next) {
-  var users = db.get('users').value();
-  var books = db.get('books').value();
-  
-  res.render('transactions/createTransaction', {
+module.exports.createTransaction = async function(req, res, next) {
+  var users = await Users.find();
+  var books = await Books.find();
+
+  res.render("transactions/createTransaction", {
     users,
     books
-  })
-}
+  });
+};
 
-module.exports.createTransactionPost = function(req, res, next) {
-  var id = shortid.generate();
-  
-  var userId = req.body.user.split(' ').pop();
-  var bookId = req.body.book.split(' ').pop();
-  var books = {}
-  books[bookId] = '1';
-
+module.exports.createTransactionPost = async function(req, res, next) {
+  var userId = req.body.user.split(" ").pop();
+  var bookId = req.body.book.split(" ").pop();
+  var books = [];
+  books.push(bookId);
 
   var transaction = {
-    id : id,
-    userId : userId,
-    books : books
-  }
-  
-   console.log(transaction)
-  db.get('transactions')
-  .push(transaction)
-  .write()
-  
-  res.redirect("/transactions")
-}
+    userId: userId,
+    books: books,
+    isComplete: false
+  };
 
-module.exports.completeTransaction = function(req, res, next) {
+  var result = await Transactions.create(transaction);
+
+  res.redirect("/transactions");
+};
+
+module.exports.completeTransaction = async function(req, res, next) {
   var transactionId = req.params.transactionId;
-  db.get('transactions')
-  .find({ id : transactionId })
-  .assign({isComplete : true})
-  .write();
-  res.redirect('/transactions');
-}
+  
+  var result = await Transactions.updateOne({ _id : transactionId}, { isComplete: true });
+  
+  res.redirect("/transactions");
+};

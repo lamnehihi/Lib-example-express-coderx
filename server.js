@@ -30,7 +30,6 @@ try {
 app.set('views', './views');
 app.set('view engine', 'pug');
 
-var cookiesMiddleware = require('./middlewares/cookies.middleware');
 var usersMiddleware = require('./middlewares/users.middleware');
 var sessionsMiddleware = require('./middlewares/sessions.middleware');
 
