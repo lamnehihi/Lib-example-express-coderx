@@ -41,5 +41,5 @@ module.exports.loginPost = async function(req, res, next) {
 module.exports.logout = function(req, res) {
   res.clearCookie("userId");
   res.clearCookie("sessionId");
-  res.redirect("/users");
+  res.redirect("auth/login");
 };

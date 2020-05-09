@@ -19,11 +19,6 @@ module.exports.uploadCover = async function(req, res, next) {
         crop: "limit"
       },
       function(error, result) {
-        cloudinary.image("sample.jpg", {
-          width: 300,
-          height: 200,
-          crop: "crop"
-        });
         res.locals.cover = result.secure_url;
       }
     );

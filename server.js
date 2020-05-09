@@ -25,7 +25,6 @@ try {
   console.log("can't connect! : " + error);
 }
 
-
 //connect to mongo cluster
 
 app.set('views', './views');

@@ -1,11 +1,6 @@
-var low = require('lowdb');
+var Users = require("../models/users.model");
 
-var FileSync = require('lowdb/adapters/FileSync');
-
-var adapter = new FileSync('db.json');
-var db = low(adapter);
-
-module.exports.validateName = function(req, res, next) {
+module.exports.validateName = async function(req, res, next) {
   var name = req.body.name;
   var errors = [];
   
@@ -27,9 +22,8 @@ module.exports.validateName = function(req, res, next) {
       errors.push('Require password!');
   }
   
-  var users = db.get('users').value();
-  
-  var isEmailExist = db.get('users').find({ email : req.body.email}).value();
+  var isEmailExist = await Users.findOne({ email : req.body.email });
+  console.log(isEmailExist);
   
   if(isEmailExist) {
     errors.push('This email has used before!');
@@ -37,8 +31,7 @@ module.exports.validateName = function(req, res, next) {
   
   if(errors.length) {
     res.render('users/createUser', {
-      errors,
-      users
+      errors
     })
     return
   }
