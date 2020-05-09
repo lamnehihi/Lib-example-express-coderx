@@ -19,7 +19,6 @@ block content
                 tr
                   th(scope='col') PRODUCT
                   th(scope='col')
-                  th(scope='col') QUANTITY
                   th(scope='col') TOTAL
                   th(scope='col')
               tbody
@@ -28,7 +27,6 @@ block content
                       td=book.title
                       td 
                         img.img-thumbnail(src=book.image, alt='Card image cap', height='200px', width='150px')
-                      td=book.quantity
                       td=book.price
                       td
                         .d-flex.flex-column  

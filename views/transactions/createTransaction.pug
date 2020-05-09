@@ -8,11 +8,11 @@ block content
       select#exampleFormControlSelect1.form-control(name='user')
         if users
           each user in users
-            option= user.name + " " + user.id
+            option= user.name + " " + user.id 
     .form-group
       label(for='exampleFormControlSelect1') Book select
       select#exampleFormControlSelect1.form-control(name='book')
         if books
           each book in books
-            option= book.title + " "  + book.id
+            option= book.title + " " + book.id 
     button.btn.btn-primary Add

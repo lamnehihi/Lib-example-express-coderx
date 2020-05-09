@@ -1,7 +1,5 @@
-var shortid = require("shortid");
 var bcrypt = require("bcryptjs");
 
-var db = require("../db");
 var Users = require("../models/users.model");
 
 module.exports.index = async function(req, res, next) {
