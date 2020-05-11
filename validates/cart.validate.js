@@ -1,5 +1,4 @@
 var Sessions = require("../models/sessions.model");
-var db = require("../db");
 
 module.exports.validateCart = async function(req, res, next) {
   var sessionId = req.signedCookies.sessionId;

@@ -1,6 +1,5 @@
 var shortid = require("shortid");
 
-var db = require("../db");
 var Sessions = require("../models/sessions.model");
 var Books = require("../models/books.model");
 var Transactions = require("../models/transactions.model");

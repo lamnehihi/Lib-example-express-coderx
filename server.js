@@ -7,8 +7,6 @@ var mongoose = require("mongoose");
 
 var app = express();
 
-var db = require("./db");
-
 var bookRoute = require("./routes/book.route");
 var userRoute = require("./routes/user.route");
 var transactionRoute = require("./routes/transactions.route");
