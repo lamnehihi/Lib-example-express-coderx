@@ -1,6 +1,5 @@
 var cloudinary = require("cloudinary");
 
-var db = require("../db");
 var Users = require("../models/users.model");
 
 module.exports.requireAuth = async function(req, res, next) {
