@@ -2,6 +2,8 @@ var cloudinary = require("cloudinary");
 
 var Users = require("../models/users.model");
 
+var sessionsMiddleware = require("../middlewares/sessions.middleware");
+
 module.exports.requireAuth = async function(req, res, next) {
   var userId = req.signedCookies.userId;
 
@@ -35,7 +37,7 @@ module.exports.requireAuth = async function(req, res, next) {
   } catch (error) {
     console.log(error);
   }
-
+  sessionsMiddleware.count();
   res.locals.user = user;
   next();
 };

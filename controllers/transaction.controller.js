@@ -3,12 +3,9 @@ var Users = require("../models/users.model");
 var Books = require("../models/books.model");
 
 module.exports.index = async function(req, res, next) {
-  var transactions = await Transactions.find();
-  var users = [];
-  for (var transaction of transactions) {
-    var user = await Users.findOne({ _id: transaction.userId });
-    users.push(user);
-  }
+  
+  var transactions = await Transactions.find({userId : req.signedCookies.userId});
+  var user = await Users.findOne({ _id : req.signedCookies.userId });
 
   var books = [];
   for (var transaction of transactions) {
@@ -23,7 +20,7 @@ module.exports.index = async function(req, res, next) {
 
   res.render("transactions/index", {
     transactions,
-    users,
+    user,
     books,
     x: 0
   });

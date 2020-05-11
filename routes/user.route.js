@@ -5,22 +5,13 @@ var upload = multer({ dest: "./public/uploads/" });
 var router = express.Router();
 
 var controller = require("../controllers/user.controller");
+
 var validate = require("../validates/user.validate");
 var usersMiddleware = require("../middlewares/users.middleware");
 
 var Users = require("../models/users.model");
 
 router.get("/", controller.index);
-
-router.get("/create", controller.createUser);
-
-router.post(
-  "/create",
-  upload.single("avatar"),
-  validate.validateName,
-  usersMiddleware.uploadImg,
-  controller.createUserPost
-);
 
 router.get("/update/:userId", controller.updateUser);
 

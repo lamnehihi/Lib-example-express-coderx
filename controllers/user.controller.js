@@ -13,10 +13,6 @@ module.exports.index = async function(req, res, next) {
   });
 };
 
-module.exports.createUser = function(req, res) {
-  res.render("users/createUser", {});
-};
-
 module.exports.createUserPost = async function(req, res) {
   req.body.avatar = res.locals.avatar;
   req.body.priority = "3"; //1 == Admin . 2 == staff . 3 == user . 4 == banned

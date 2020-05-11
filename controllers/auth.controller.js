@@ -42,3 +42,21 @@ module.exports.logout = function(req, res) {
   res.clearCookie("sessionId");
   res.redirect("auth/login");
 };
+
+module.exports.signUp = function(req, res) {
+  res.render("auth/signUp", {});
+};
+
+module.exports.signUpPost = async function(req, res) {
+  req.body.avatar = res.locals.avatar;
+  req.body.priority = "3"; //1 == Admin . 2 == staff . 3 == user . 4 == banned
+
+  var salt = bcrypt.genSaltSync(10);
+  var hash = bcrypt.hashSync(req.body.password, salt);
+
+  req.body.password = hash;
+
+  var result = await Users.create(req.body);
+
+  res.redirect("/users");
+};
