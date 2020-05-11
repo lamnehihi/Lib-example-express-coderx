@@ -69,6 +69,11 @@ footer {
   display: inline-block;
 }
 
+.card-body {
+  position: relative;
+  height : 18rem;
+}
+
 .card-img-top {
   width: 50%;
   height: 100%;
@@ -79,4 +84,9 @@ footer {
   display : flex;
   justify-content : center;
   height : 240px;
+}
+
+.book-button {
+  position: absolute;
+  bottom: 0px;
 }

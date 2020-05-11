@@ -1,6 +1,7 @@
 var shortid = require('shortid');
 
 var Books = require("../models/books.model");
+var Shops = require("../models/shops.model");
 
 module.exports.index = async function(req, res, next ) {
   var page = req.query.page || 1;
@@ -8,11 +9,18 @@ module.exports.index = async function(req, res, next ) {
   var start = (page-1) * perPage;
   var end = start + perPage;
   var books = await Books.find();
+  var shops = []
+  for ( var book of books) {
+    var shop = await Shops.findOne({_id : book.shopId});
+    shops.push(shop)
+  }
+  console.log(shops);
   
   res.render('books/index', {
     books : books.slice(start, end),
     page,
-    test : res.locals.test
+    shops,
+    x : 0
   })
 }
 
