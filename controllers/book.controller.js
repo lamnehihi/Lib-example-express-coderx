@@ -9,7 +9,7 @@ module.exports.index = async function(req, res, next ) {
   var start = (page-1) * perPage;
   var end = start + perPage;
   var books = await Books.find();
-  var shops = []
+  var shops = [];
   for ( var book of books) {
     var shop = await Shops.findOne({_id : book.shopId});
     shops.push(shop)
@@ -20,7 +20,7 @@ module.exports.index = async function(req, res, next ) {
     books : books.slice(start, end),
     page,
     shops,
-    x : 0
+    x : page*perPage-perPage
   })
 }
 
@@ -31,6 +31,7 @@ module.exports.createBook = function(req, res) {
 
 module.exports.createBookPost = async function(req, res) {
   req.body.image = res.locals.cover;
+  req.body.shopId = res.locals.shopId;
   var result = await Books.create(req.body);
   res.redirect('/books');
 }
@@ -50,13 +51,13 @@ module.exports.updateBookPost = async function(req, res) {
   
   var result = await Books.updateOne({ _id : bookId }, req.body);
   
-  res.redirect('/books');
+  res.redirect('back');
 }
 
 module.exports.deleteBook = async function(req, res) {
   var bookId = req.params.bookId;
   var result = await Books.deleteOne({ _id : bookId});
-  res.redirect('/books');
+  res.redirect('back');
 }
 
 module.exports.updateBookCover = async function(req, res) {

@@ -19,7 +19,7 @@ module.exports.requireAuth = async function(req, res, next) {
   }
 
   if (!req.signedCookies.sessionId) {
-    res.redirect("/");
+    res.redirect("/auth/login");
   }
 
   if (!user.sessionId) {

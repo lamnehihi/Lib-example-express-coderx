@@ -55,6 +55,13 @@ footer {
   border-top: 1px solid lightgrey;
 }
 
+.truncate {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .count-product {
   font-size: 0.8875rem;
   font-weight: 500;
@@ -71,7 +78,7 @@ footer {
 
 .card-body {
   position: relative;
-  height : 18rem;
+  height : 12rem;
 }
 
 .card-img-top {
@@ -80,6 +87,14 @@ footer {
   display: block;
   object-fit: cover;
 }
+
+.card-text { 
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .box {
   display : flex;
   justify-content : center;

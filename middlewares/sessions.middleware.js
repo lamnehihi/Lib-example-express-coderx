@@ -14,7 +14,7 @@ module.exports.requireSession = async function(req, res, next) {
       signed: true
     });
 
-    res.redirect("/");
+    res.redirect("back");
   }
 
   res.locals.sessionId = cookie.sessionId;
