@@ -12,14 +12,14 @@ var userRoute = require("./routes/user.route");
 var transactionRoute = require("./routes/transactions.route");
 var authRoute = require("./routes/auth.route");
 var cartRoute = require("./routes/cart.route");
+var shopRoute = require("./routes/shop.route");
+
 
 var connectDB = require("./connection");
 
 var apiBooksRoute = require("./api/routes/books.route");
 var apiAuthRoute = require("./api/routes/auth.route");
 var apiTransactionRoute = require("./api/routes/transactions.route");
-
-
 
 //connect to mongo cluster
 
@@ -53,18 +53,15 @@ app.use("/auth", authRoute);
 
 app.use("/cart", cartRoute);
 
+app.use("/shops", usersMiddleware.requireAuth, shopRoute);
 
-
+//APIs routes
 
 app.use("/api/books", apiBooksRoute);
 
 app.use("/api/login", apiAuthRoute);
 
 app.use("/api/transactions", apiTransactionRoute);
-
-
-
-
 
 // make all the files in 'public' available
 // https://expressjs.com/en/starter/static-files.html

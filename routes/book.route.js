@@ -6,6 +6,7 @@ var upload = multer({ dest: "./public/uploads/" });
 var router = express.Router();
 var controller = require("../controllers/book.controller");
 var booksMiddleware = require("../middlewares/books.middleware");
+var usersMiddleware = require("../middlewares/users.middleware");
 
 router.get("/", controller.index);
 
@@ -18,10 +19,17 @@ router.get("/error", function(req, res, next) {
   }
 });
 
-router.get("/create", controller.createBook);
+router.get(
+  "/create",
+  usersMiddleware.requireAuth,
+  booksMiddleware.requireShop,
+  controller.createBook
+);
 
 router.post(
   "/create",
+  usersMiddleware.requireAuth,
+  booksMiddleware.requireShop,
   upload.single("cover"),
   booksMiddleware.uploadCover,
   controller.createBookPost

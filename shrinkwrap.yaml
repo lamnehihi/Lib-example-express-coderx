@@ -1,10 +1,12 @@
 dependencies:
+  algoliasearch: 4.2.0
   bcryptjs: 2.4.3
   body-parser: 1.19.0
   cloudinary: 1.21.0
   cookie-parser: 1.4.5
   dotenv: 8.2.0
   express: 4.17.1
+  instantsearch.js: 4.4.1
   lowdb: 1.0.0
   md5: 2.2.1
   mongodb: 3.5.7
@@ -13,6 +15,96 @@ dependencies:
   pug: 2.0.4
   shortid: 2.2.15
 packages:
+  /@algolia/cache-browser-local-storage/4.2.0:
+    dependencies:
+      '@algolia/cache-common': 4.2.0
+    dev: false
+    resolution:
+      integrity: sha512-uji5zxBxwNu8qKtyqghg9lUsN0OOZ58NfRKk0Il4IZCcCo78E0KfT3Uxr7XiYCJMRnqIsvbKWf0xA67tYNBSbA==
+  /@algolia/cache-common/4.2.0:
+    dev: false
+    resolution:
+      integrity: sha512-ATBQCBBLt4hPNKIKn06y5zqZPWQmI+PBF0287rFVj8BGmEr82BzoKMa5XIkvgpjtxwx6c5nSKxZaYkEFqtrxtQ==
+  /@algolia/cache-in-memory/4.2.0:
+    dependencies:
+      '@algolia/cache-common': 4.2.0
+    dev: false
+    resolution:
+      integrity: sha512-NsVOR6ixK6jvurLW+1+h80/9N18QjU/AXdAZJoVeu4JXb2NPuej4Ld1zXFYvz/ypCFQE+dU8haaQnJIuTbD4vg==
+  /@algolia/client-account/4.2.0:
+    dependencies:
+      '@algolia/client-common': 4.2.0
+      '@algolia/client-search': 4.2.0
+      '@algolia/transporter': 4.2.0
+    dev: false
+    resolution:
+      integrity: sha512-xz5OXU9DQ9pegABAgmTPV23f9tXmbUPO3w5J/b2QcP6jzfNnNfW3CkTwywgNLr16jIKLxmmClN5yqyJp6XmHBA==
+  /@algolia/client-analytics/4.2.0:
+    dependencies:
+      '@algolia/client-common': 4.2.0
+      '@algolia/client-search': 4.2.0
+      '@algolia/requester-common': 4.2.0
+      '@algolia/transporter': 4.2.0
+    dev: false
+    resolution:
+      integrity: sha512-UNuZQOYuKPYl5fCgm1HZzoZ6Ewxtqrc4Cv5Dhdy5VatIV6lYEWOtdn+g+5qvWFGb6fv6688dg5EVJnXZNvVVZQ==
+  /@algolia/client-common/4.2.0:
+    dependencies:
+      '@algolia/requester-common': 4.2.0
+      '@algolia/transporter': 4.2.0
+    dev: false
+    resolution:
+      integrity: sha512-KxZTWXf9FSl188iTAz9rhTMeBtbF/uaJcxw99jbWHxyK9KR87obZzTlTFYnIWLEBaTG1MmlgPSsDogAE4CHLOQ==
+  /@algolia/client-recommendation/4.2.0:
+    dependencies:
+      '@algolia/client-common': 4.2.0
+      '@algolia/requester-common': 4.2.0
+      '@algolia/transporter': 4.2.0
+    dev: false
+    resolution:
+      integrity: sha512-5QwvUJ5hpZVDz99o+EPgMg+z7maLWOZGUrUt5z8s+esl+taTb2h1PtyLpikAvC2d/BjYCEKyObTiRDYdzhqcoA==
+  /@algolia/client-search/4.2.0:
+    dependencies:
+      '@algolia/client-common': 4.2.0
+      '@algolia/requester-common': 4.2.0
+      '@algolia/transporter': 4.2.0
+    dev: false
+    resolution:
+      integrity: sha512-2SAz1/undr+RM7FNj3G0taWFG+8QEMQcYHxUhoOJKMIY9sPQN7UNCJRHYsulM+/g45oF67tXX09NSt14ewen0Q==
+  /@algolia/logger-common/4.2.0:
+    dev: false
+    resolution:
+      integrity: sha512-VQcJE5lr78oc+lbcGfPonCDTRwLNSxwtPrUP6Tj+CoDedsVHZhODAlHzLHhxc4vuyrU7xomvKJLqTUgfDNxzXQ==
+  /@algolia/logger-console/4.2.0:
+    dependencies:
+      '@algolia/logger-common': 4.2.0
+    dev: false
+    resolution:
+      integrity: sha512-/1GE43jY0xKfJUi5ZGtEqq+oTyOzs+EgGKj7/zEHIpUc5NyxokIPWTqt3q6pzGSWFEkNbaA1gAVgXM1zCMVWYw==
+  /@algolia/requester-browser-xhr/4.2.0:
+    dependencies:
+      '@algolia/requester-common': 4.2.0
+    dev: false
+    resolution:
+      integrity: sha512-+PZKOe+UBdZYQg/h/8AbKQ2Ha4uDeoLnpZFv00IMr/elym0m2hl76xAeIBiIqGYsLCmGybGBFUF9n1imsKJUJQ==
+  /@algolia/requester-common/4.2.0:
+    dev: false
+    resolution:
+      integrity: sha512-SSKPRM/7UP54/dxyK6EYt4p6nTeJxYb1P6xVh/Ic6noBTCfqg5vBEKDa1DZD5MBtCvABoODd97UOfAo3ECG/jg==
+  /@algolia/requester-node-http/4.2.0:
+    dependencies:
+      '@algolia/requester-common': 4.2.0
+    dev: false
+    resolution:
+      integrity: sha512-mRQgSM8qrMfjXaBnMjTmymR0NKwbr82Qwh1a5TgYyzMOBuRO5nRikawvTVgpNaEnQS0uesIiwd2ohOJ2gNu6oA==
+  /@algolia/transporter/4.2.0:
+    dependencies:
+      '@algolia/cache-common': 4.2.0
+      '@algolia/logger-common': 4.2.0
+      '@algolia/requester-common': 4.2.0
+    dev: false
+    resolution:
+      integrity: sha512-7CiwMYsEhrHySA8q70euIYOyhGtz/wz+MEC3nwGONBC82nGI6ntVqTFhCkpLIJqqbGbNlFgnCpwnLmSqLhRP3A==
   /@types/babel-types/7.0.7:
     dev: false
     resolution:
@@ -23,6 +115,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-xH2e58elpj1X4ynnKp9qSnWlsRTIs6n3tgLGNfwAGHwePw0mulHQllV34n0T25uYSu1k0hRKkWXF890B1yS47w==
+  /abbrev/1.1.1:
+    dev: false
+    resolution:
+      integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
   /accepts/1.3.7:
     dependencies:
       mime-types: 2.1.27
@@ -52,6 +148,33 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-EFSVrlNh1pe9GVyCUZLhrX8lN4c=
+  /algoliasearch-helper/3.1.1:
+    dependencies:
+      events: 1.1.1
+    dev: false
+    peerDependencies:
+      algoliasearch: '>= 3.1 < 5'
+    resolution:
+      integrity: sha512-Jkqlp8jezQRixf7sbQ2zFXHpdaT41g9sHBqT6pztv5nfDmg94K+pwesAy6UbxRY78IL54LIaV1FLttMtT+IzzA==
+  /algoliasearch/4.2.0:
+    dependencies:
+      '@algolia/cache-browser-local-storage': 4.2.0
+      '@algolia/cache-common': 4.2.0
+      '@algolia/cache-in-memory': 4.2.0
+      '@algolia/client-account': 4.2.0
+      '@algolia/client-analytics': 4.2.0
+      '@algolia/client-common': 4.2.0
+      '@algolia/client-recommendation': 4.2.0
+      '@algolia/client-search': 4.2.0
+      '@algolia/logger-common': 4.2.0
+      '@algolia/logger-console': 4.2.0
+      '@algolia/requester-browser-xhr': 4.2.0
+      '@algolia/requester-common': 4.2.0
+      '@algolia/requester-node-http': 4.2.0
+      '@algolia/transporter': 4.2.0
+    dev: false
+    resolution:
+      integrity: sha512-CgbyDBGMSzNISBFezPt68xAseknork+wNe/Oour1Hluk4OwbtobysRawFf93ZbLSQw/KbeGlVmVAvujeVIVdnQ==
   /align-text/0.1.4:
     dependencies:
       kind-of: 3.2.2
@@ -177,6 +300,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-wKHS86cJLgN3S/qD8UwPxXkKhmc=
+  /classnames/2.2.6:
+    dev: false
+    resolution:
+      integrity: sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
   /clean-css/4.2.3:
     dependencies:
       source-map: 0.6.1
@@ -348,6 +475,12 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
+  /events/1.1.1:
+    dev: false
+    engines:
+      node: '>=0.4.x'
+    resolution:
+      integrity: sha1-nr23Y1rQmccNzEwqH1AEKI6L2SQ=
   /express/4.17.1:
     dependencies:
       accepts: 1.3.7
@@ -427,6 +560,14 @@ packages:
       node: '>= 0.4.0'
     resolution:
       integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
+  /hogan.js/3.0.2:
+    dependencies:
+      mkdirp: 0.3.0
+      nopt: 1.0.10
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha1-TNnhq9QpQUbnZ55B14mHMrAse/0=
   /http-errors/1.7.2:
     dependencies:
       depd: 1.1.2
@@ -467,6 +608,18 @@ packages:
     dev: false
     resolution:
       integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
+  /instantsearch.js/4.4.1:
+    dependencies:
+      algoliasearch-helper: 3.1.1
+      classnames: 2.2.6
+      events: 1.1.1
+      hogan.js: 3.0.2
+      preact: 10.4.1
+      prop-types: 15.7.2
+      qs: 6.9.4
+    dev: false
+    resolution:
+      integrity: sha512-CphyvXNHYCkPYCUTPtjYA//AJ3yn29gX09KrcahxVfXbgxZDMUMcNnF0BnCAYjjVB9U49NXKOrZf6VZ8Z57EwA==
   /ipaddr.js/1.9.1:
     dev: false
     engines:
@@ -508,6 +661,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-Fzb939lyTyijaCrcYjCufk6Weds=
+  /js-tokens/4.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
   /jstransformer/1.0.0:
     dependencies:
       is-promise: 2.2.2
@@ -543,6 +700,13 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-MKCy2jj3N3DoKUoNIuZiXtd9AJc=
+  /loose-envify/1.4.0:
+    dependencies:
+      js-tokens: 4.0.0
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
   /lowdb/1.0.0:
     dependencies:
       graceful-fs: 4.2.4
@@ -609,6 +773,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+  /mkdirp/0.3.0:
+    deprecated: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+    dev: false
+    resolution:
+      integrity: sha1-G79asbqCevI1dRQ0kEJkVfSB/h4=
   /mkdirp/0.5.5:
     dependencies:
       minimist: 1.2.5
@@ -709,6 +878,13 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
+  /nopt/1.0.10:
+    dependencies:
+      abbrev: 1.1.1
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha1-bd0hvSoxQXuScn3Vhfim83YI6+4=
   /object-assign/4.1.1:
     dev: false
     engines:
@@ -743,6 +919,10 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY=
+  /preact/10.4.1:
+    dev: false
+    resolution:
+      integrity: sha512-WKrRpCSwL2t3tpOOGhf2WfTpcmbpxaWtDbdJdKdjd0aEiTkvOmS4NBkG6kzlaAHI9AkQ3iVqbFWM3Ei7mZ4o1Q==
   /process-nextick-args/2.0.1:
     dev: false
     resolution:
@@ -753,6 +933,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-nolQXZ/4L+bP/UGlkfaIujX9BKxGwmQ9OT4mOt5yvy8iK1h3wqTEJCijzGANTCCl9nWjY41juyAn2K3Q1hLLTg==
+  /prop-types/15.7.2:
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      react-is: 16.13.1
+    dev: false
+    resolution:
+      integrity: sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
   /proxy-addr/2.0.6:
     dependencies:
       forwarded: 0.1.2
@@ -868,6 +1056,12 @@ packages:
       node: '>=0.6'
     resolution:
       integrity: sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
+  /qs/6.9.4:
+    dev: false
+    engines:
+      node: '>=0.6'
+    resolution:
+      integrity: sha512-A1kFqHekCTM7cz0udomYUoYNWjBebHm/5wzU/XqrBRBNWectVH0QIiN+NEcZ0Dte5hvzHwbr8+XQmguPhJ6WdQ==
   /range-parser/1.2.1:
     dev: false
     engines:
@@ -885,6 +1079,10 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-4Oz8DUIwdvoa5qMJelxipzi/iJIi40O5cGV1wNYp5hvZP8ZN0T+jiNkL0QepXs+EsQ9XJ8ipEDoiH70ySUJP3Q==
+  /react-is/16.13.1:
+    dev: false
+    resolution:
+      integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
   /readable-stream/1.1.14:
     dependencies:
       core-util-is: 1.0.2
@@ -1181,12 +1379,14 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
+  algoliasearch: ^4.2.0
   bcryptjs: ^2.4.3
   body-parser: ^1.19.0
   cloudinary: ^1.21.0
   cookie-parser: ^1.4.5
   dotenv: ^8.2.0
   express: ^4.17.1
+  instantsearch.js: ^4.4.1
   lowdb: ^1.0.0
   md5: ^2.2.1
   mongodb: ^3.5.7
